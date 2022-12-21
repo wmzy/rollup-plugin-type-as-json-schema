@@ -6,12 +6,12 @@ import {createGenerator} from 'ts-json-schema-generator';
 const SCHEMA_QUERY = '?json-schema-source';
 
 /**
- * Form
+ * Rollup plugin
  * @param {Options} options
- * @return {Plugin}
+ * @return {Plugin} plugin
  */
 export default function typeAsJsonSchemaPlugin({
-  mapTsSource = defaultMapTsSource,
+  mapTsId: mapTsSource = defaultResolveTsSource,
   mapExportName = defaultMapExportName,
   config
 } = {}) {
@@ -26,9 +26,12 @@ export default function typeAsJsonSchemaPlugin({
   return {
     name: 'type-as-json-schema',
     async resolveId(source, importer, options) {
-      const tsSource = mapTsSource(source);
+      const tsSource = mapTsSource(source, importer);
       if (tsSource) {
-        const tsFile = await this.resolve(tsSource, importer, options);
+        const tsFile = await this.resolve(tsSource, importer, {
+          ...options,
+          skipSelf: true
+        });
         return tsFile && tsFile.id + SCHEMA_QUERY;
       }
     },
@@ -62,11 +65,11 @@ export default function typeAsJsonSchemaPlugin({
 
 /**
  * default map ts source
- * @param {string} source schema source
+ * @param {string} id schema source
  * @returns {string | void}
  */
-export function defaultMapTsSource(source) {
-  if (source.endsWith('.schema')) return source.slice(0, -'.schema'.length);
+export function defaultResolveTsSource(id) {
+  if (id.endsWith('.schema')) return id.slice(0, -'.schema'.length);
 }
 
 export function defaultMapExportName(sym) {

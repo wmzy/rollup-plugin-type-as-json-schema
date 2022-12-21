@@ -77,6 +77,6 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "ts-json-schema-generator": "^0.93.0"
+    "ts-json-schema-generator": "^1.1.2"
   }
 }

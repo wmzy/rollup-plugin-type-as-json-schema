@@ -3,17 +3,21 @@
 [![install size](https://packagephobia.now.sh/badge?p=rollup-plugin-type-as-json-schema)](https://packagephobia.now.sh/result?p=rollup-plugin-type-as-json-schema)
 # rollup-plugin-type-as-json-schema
 
-> Library starter
+> A Rollup Plugin for Import TS Types as JSON Schema.
 
 ## Usage
 
 ```bash
-bash <(curl -sL https://git.io/rollup-plugin-type-as-json-schema)
+npm i -D rollup-plugin-type-as-json-schema
+```
+
+or
+
+```bash
+pnpm add -D rollup-plugin-type-as-json-schema
 ```
 
 ## Compatibility Note
-
-This lib support [these browsers or devices](.broserslistrc) with [these methods or APIs](.eslintrc.js#L27) pollyfilled.
 
 ## Workflow
 
@@ -33,8 +37,3 @@ npm run commit
 # publish
 npm publish
 ```
-
-## TODO
-
-* [ ] github pages
-* [ ] generator
