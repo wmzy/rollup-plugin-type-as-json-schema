@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-type-as-json-schema",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "A rollup plugin to load a ts type as json schema object.",
   "main": "dist/index.cjs",
   "exports": {
