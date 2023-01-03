@@ -4,7 +4,10 @@
   "description": "A rollup plugin to load a ts type as json schema object.",
   "main": "dist/index.cjs",
   "exports": {
-    ".": "./dist/index.mjs"
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
   },
   "files": [
     "dist",
