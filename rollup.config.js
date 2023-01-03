@@ -16,7 +16,7 @@ export default {
       format: 'cjs'
     },
     {
-      file: pkg.exports['.'],
+      file: pkg.exports['.'].import,
       sourcemap: true,
       format: 'es'
     }
