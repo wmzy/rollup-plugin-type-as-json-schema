@@ -30,3 +30,7 @@ export type Options = {
    */
   config?: Partial<import('ts-json-schema-generator').Config>;
 };
+
+export default function typeAsJsonSchemaPlugin(options?: Options): import('rollup').Plugin;
+export function defaultResolveTsSource(id): string;
+export function defaultMapExportName(sym): string;
